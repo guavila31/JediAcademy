@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "540437340172",
+    "project_id": "jediacademy-ed5cf",
+    "storage_bucket": "jediacademy-ed5cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540437340172:android:bbcee4c063dc2beba64e29",
+        "android_client_info": {
+          "package_name": "com.example.jediacademy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540437340172-8j3n9pmfqst5komagj39knbc9gpmbc26.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jediacademy",
+            "certificate_hash": "c505ac567ef73ebf71af37c9d95d760bc57545dc"
+          }
+        },
+        {
+          "client_id": "540437340172-6tlto5552f9g7bocc039gk5g33u1aujf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR2d9uqDpDjoGeBRACUX5EBoVtsaskkGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540437340172-6tlto5552f9g7bocc039gk5g33u1aujf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
