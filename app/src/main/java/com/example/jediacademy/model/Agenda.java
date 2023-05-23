@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Agenda implements Serializable {
-    private int id;
+    private String id;
     private String curso;
     private String materia;
     private String local;
@@ -22,32 +22,26 @@ public class Agenda implements Serializable {
     public Agenda() {
     }
 
-    public void salvar() {
+    public void salvar(String chave) {
         FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         String idUsuario = Base64Custom.codificarBase64(autenticacao.getCurrentUser().getEmail());
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
         firebase.child("agendaProfessor")
                 .child(idUsuario)
-                .push()
+                .child(chave)
                 .setValue(this);
     }
 
-    public void alterar() {
+    public void alterar(String chave) {
         FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         String idUsuario = Base64Custom.codificarBase64(autenticacao.getCurrentUser().getEmail());
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
-        String agendaId = firebase.child("agendaProfessor").child(idUsuario).push().getKey();
-
-        // Crie um Map com os valores que você deseja atualizar
-        Map<String, Object> atualizacao = new HashMap<>();
-        atualizacao.put(agendaId, this);
-
-        // Atualize os valores no Firebase Database
         firebase.child("agendaProfessor")
                 .child(idUsuario)
-                .updateChildren(atualizacao);
+                .child(chave)
+                .setValue(this);
     }
-    public Agenda(int id, String curso, String materia, String local, String data, String hora, String resumo) {
+    public Agenda(String id, String curso, String materia, String local, String data, String hora, String resumo) {
         this.id = id;
         this.curso = curso;
         this.materia = materia;
@@ -57,11 +51,11 @@ public class Agenda implements Serializable {
         this.resumo = resumo;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

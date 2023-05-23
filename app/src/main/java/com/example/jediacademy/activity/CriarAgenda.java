@@ -56,6 +56,7 @@ public class CriarAgenda extends AppCompatActivity {
                 if (curso.isEmpty() || materia.isEmpty() || local.isEmpty() || dataAula.isEmpty() || horaAula.isEmpty()) {
                     Toast.makeText(CriarAgenda.this, "Todos os campos são obrigatórios!", Toast.LENGTH_SHORT).show();
                 } else {
+                    String chaveAgenda = curso + dataAula + horaAula;
                     agenda = new Agenda();
                     //String data = ;
                     agenda.setCurso(txtCurso.getText().toString());
@@ -63,7 +64,8 @@ public class CriarAgenda extends AppCompatActivity {
                     agenda.setLocal(txtLocal.getText().toString());
                     agenda.setData(txtDataAula.getText().toString());
                     agenda.setHora(txtHoraAula.getText().toString());
-                    agenda.salvar();
+                    agenda.setId(chaveAgenda);
+                    agenda.salvar(chaveAgenda);
                     Toast.makeText(CriarAgenda.this, "Agenda Criada com sucesso!", Toast.LENGTH_SHORT).show();
                     abrirTelaAgenda();
                     finish();

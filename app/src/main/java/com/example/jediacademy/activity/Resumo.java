@@ -41,17 +41,9 @@ public class Resumo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String resumo = textResumo.getText().toString();
-
-                agenda = new Agenda();
-                //String data = ;
-                agenda.setResumo(textResumo.getText().toString());
-                agenda.setCurso(textNome.getText().toString());
-                agenda.setMateria(textMateria.getText().toString());
-                agenda.setLocal(textLocal.getText().toString());
-                agenda.setData(textData.getText().toString());
-                agenda.setHora(textHora.getText().toString());
-                agenda.setId(agenda.getId());
-                agenda.alterar();
+                String chaveAgenda = agenda.getId();
+                agenda.setResumo(resumo);
+                agenda.alterar(chaveAgenda);
                 Toast.makeText(Resumo.this, "Agenda atualizada com sucesso!", Toast.LENGTH_SHORT).show();
                 abrirTelaAgenda();
                 finish();
